@@ -79,3 +79,40 @@ set
 // 삭제
 set.remove(20)
 set
+
+
+
+class Person1 {
+    // 1. 아래와 같이 프로퍼티를 생성할 때 값을 초기화 할 수도 있고
+    var name: String = ""
+    var age: Int = 0
+
+    // 2. 생성자를 통해서도 값을 초기화 시킬 수 있다.
+    init() {}
+
+    func introduce() {
+        print("\(name) \(age)")
+    }
+}
+
+// Person 클래스 인스턴스 생성
+//var person = Person1()
+
+
+class Person2 {
+    var name: String
+    var age: Int
+
+    // 2. 생성자를 통해서도 값을 초기화 시킬 수 있다.
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+
+    func introduce() {
+        print("\(name) \(age)")
+    }
+}
+
+// Person 클래스 인스턴스 생성
+var person = Person2(name: "B", age: 25)
