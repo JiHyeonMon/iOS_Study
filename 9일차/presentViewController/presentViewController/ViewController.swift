@@ -7,7 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SendDataDelegate {
+    func sendData(name: String) {
+        print(name)
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,14 +20,14 @@ class ViewController: UIViewController {
 
     @IBAction func codePushButtonClicked(_ sender: Any) {
         
-        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "CodePushVC") else { return }
-        
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "CodePushVC") as? CodePushViewController else { return }
+        viewController.name = "데이터 전달하기"
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction func codePresentButtonClicked(_ sender: Any) {
-        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "CodePresentVC") else { return }
-        
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "CodePresentVC") as? CodePresentViewController else { return }
+        viewController.delegate = self
         viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true, completion: nil)
     }

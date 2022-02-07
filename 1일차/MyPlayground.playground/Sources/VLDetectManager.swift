@@ -30,7 +30,7 @@ class VLDetectManager {
         
         switch checkUserType() {
         case .Premium:
-            return VLPremiumDector.canExport(project: project)
+            return premiumDetector.canExport(project: project)
         case .Free:
             return rewardDetector.canExport(project: project)
         }
@@ -40,7 +40,7 @@ class VLDetectManager {
         switch checkUserType() {
             
         case .Premium:
-            return VLPremiumDector.canExport(deco: decoData)
+            return premiumDetector.canExport(deco: decoData)
         case .Free:
             return rewardDetector.canExport(decoData: decoData)
         }
@@ -49,7 +49,7 @@ class VLDetectManager {
     func canExport(dataInfo: VLDataInfo) -> Bool {
         switch checkUserType() {
         case .Premium:
-            return VLPremiumDector.canExport(dataInfo: dataInfo)
+            return premiumDetector.canExport(dataInfo: dataInfo)
         case .Free:
             return true
         }
